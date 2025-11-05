@@ -1,0 +1,285 @@
+/* estilos generales */
+body {
+    background-color: #242424;
+    /* Box Model: Eliminamos margen por defecto */
+    margin: 0; 
+}
+
+/* --- HEADER: Estructura vertical simple (Logo/Nav, Banner, Título) --- */
+header {
+    /* Flexbox: Apila los 3 hijos principales (barra, banner-container, h1) verticalmente */
+    display: flex;
+    flex-direction: column;
+    background-color: #333; 
+}
+
+/* 🟢 BARRA SUPERIOR - FLEXBOX (Logo y Navegación en línea) */
+.barra-superior {
+    /* Mantenemos el Flexbox para escritorio */
+    display: flex;
+    /* Separa el Logo del Botón/Menú */
+    justify-content: space-between; 
+    /* Alinea el Logo con el Botón Hamburguesa verticalmente */
+    align-items: center; 
+    padding: 10px 20px;
+}
+
+/* Logo */
+header .logo {
+    width: 15%;
+    height: auto;
+    padding: 10px 20px;
+}
+
+/* Estilos del UL e LI del menú */
+#menuRelic ul {
+    flex-direction: row; /* En PC/Tablet, los ítems van en fila */
+    padding: 0;
+    margin: 0;
+}
+#menuRelic ul li {
+    list-style: none;
+    margin-left: 15px; /* Espacio entre ítems en PC */
+    text-align: left; 
+    padding: 0;
+    border: none;
+}
+#menuRelic ul li a {
+    /* Aplicamos tus estilos RÚSTICOS */
+    text-decoration: none; /* ELIMINA LA SUBRAYADO */
+    color: #E6E7EB; /* Tu color de texto claro */
+    font-family: satoshi variable, light; /* Tu tipografía */
+    display: block; 
+    padding: 0; 
+    background-color: transparent; 
+}
+a:hover {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+/* Banner */
+header .banner {
+    width: 100%;
+    height: auto;
+    /* Box Model: Eliminamos márgenes */
+    margin: 0; 
+    padding: 0;
+    display: block; 
+}
+
+/* Titulo h1 */
+header h1 {
+    font-size: 800%;
+    text-align: center;
+    color: #242424;
+    font-family: satoshi variable, black;
+    background-color: #E6E7EB;
+    /* Box Model: Padding y margen superior negativo para el efecto rústico */
+    padding: 15px 0;
+    margin: -10px 0 0 0; 
+    max-width: 100%;
+}
+
+/* --- MAIN: Contenido Principal --- */
+main {
+    text-align: center;
+}
+
+/* Estilos de títulos de sección */
+main h2 {
+    font-size: 400%;
+    text-align: left;
+    color: #E6E7EB;
+    font-family: satoshi variable, black;
+    /* Box Model: Margen y padding rústicos */
+    padding: 10px 20px;
+    margin: 40px 0 20px 0;
+}
+
+/* Contenedores de productos (los divs directos bajo <section>) - FLEXBOX */
+main section > div {
+    display: flex;
+    /* Flexbox: Distribución de espacio entre productos */
+    justify-content: space-around; 
+    flex-wrap: wrap; /* Permite que salten de línea en pantallas pequeñas */
+    align-items: flex-start; 
+    margin-bottom: 40px;
+}
+
+/* Producto individual (el div dentro del contenedor general) - BOX MODEL */
+main section > div > div {
+    /* Flexbox: Ocupa un máximo del 45% para que quepan dos por fila en PC */
+    flex-basis: 45%; 
+    /* Box Model: Padding interno y margen externo rústico */
+    padding: 15px; 
+    margin: 10px;
+    border: 1px solid #444; 
+    text-align: center; 
+}
+
+/* Imágenes de productos */
+main section img {
+    /* La imagen ocupa todo el ancho de su caja de producto */
+    width: 100%; 
+    height: auto;
+}
+
+/* Párrafos de productos */
+main p {
+    text-align: center;
+    color: #E6E7EB;
+    font-family: satoshi variable, light;
+    margin: 5px 0;
+}
+
+/* Secciones de envíos y pagos (sin clase en HTML) */
+.info-pagos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 2px dashed #E6E7EB;
+    border-bottom: 2px dashed #E6E7EB;
+    margin-top: 40px;
+}
+.info-pagos h2 {
+    text-align: center;
+    font-size: 200%;
+    margin: 0 10px;
+}
+
+
+/* Seccion de políticas - GRID */
+main section:last-child {
+    display: grid;
+    /* Grid: Tres columnas iguales para los enlaces en PC */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* Enlaces de políticas */
+main section:last-child h2 {
+    text-align: center;
+    margin: 0;
+}
+main section:last-child h2 a {
+    text-decoration: none;
+    color: #E6E7EB;
+    font-family: satoshi variable, black;
+    font-size: 1.2rem;
+}
+
+/* --- FOOTER: Pie de página --- */
+footer {
+    /* Grid: Dos filas */
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 8px; 
+    padding: 20px;
+    background-color: #333; 
+    text-align: center; 
+    color: #E6E7EB;
+    font-family: satoshi variable, light;
+}
+
+/* ==================================================================== */
+/* 🛑 MEDIA QUERIES (ESTILOS SÓLO PARA MÓVILES y TABLETS) 🛑 */
+/* ==================================================================== */
+@media (max-width: 768px) { 
+    /* --- HEADER CORRECCIONES (Logo y Menú Hamburguesa) --- */
+    
+    /* 1. Logo: Aumentar el tamaño para que se vea bien */
+    header .logo {
+        width: 35%; 
+    }
+    /* Esto es incorrecto si no quieres modificar el HTML */
+.navbar-toggler {
+    display: block !important; 
+}
+    
+    /* 2. El contenedor colapsado debe ocupar el 100% */
+    #menuRelic {
+        width: 100%; 
+    }
+
+    /* 3. Estilos del menú colapsado (Alineado a la derecha con borde rústico) */
+    #menuRelic ul {
+        flex-direction: column; /* Apila los ítems verticalmente */
+        margin-top: 15px !important; 
+        padding-right: 20px; 
+    }
+    #menuRelic ul li {
+        text-align: right; 
+        margin: 5px 0 5px auto !important; /* EMPUJA el ítem a la derecha */
+        padding: 8px 15px;
+        background-color: transparent; 
+        border: 1px solid #D5D7D3; 
+    }
+    #menuRelic ul li a {
+        text-decoration: none; 
+        color: #E6E7EB; 
+        font-family: satoshi variable, light; 
+        display: block; 
+        padding: 0; 
+        background-color: transparent; 
+    }
+    
+    /* --- RESTO DEL CONTENIDO RESPONSIVO --- */
+
+    /* Titulo h1: Reducir el tamaño de la fuente para que quepa */
+    header h1 {
+        font-size: 300%; /* De 800% a 300% */
+        padding: 10px 0;
+        margin: -5px 0 0 0; /* Ajustamos el margen negativo */
+    }
+
+    /* Estilos de títulos de sección (h2): Reducir la fuente y centrar */
+    main h2 {
+        font-size: 200%; /* De 400% a 200% */
+        text-align: center; /* Centramos el título */
+        padding: 10px;
+        margin: 20px 0 10px 0;
+    }
+    
+    /* Contenedores de productos: Que los productos se apilen verticalmente */
+    main section > div {
+        flex-direction: column; 
+        margin-bottom: 20px;
+    }
+    
+    /* Producto individual: Ocupan todo el ancho en móvil */
+    main section > div > div {
+        flex-basis: 90%; /* Ocupa casi todo el ancho */
+        max-width: 90%; /* Limita el ancho para que no se pegue a los bordes */
+        margin: 10px auto; /* Centramos la caja */
+        padding: 10px; 
+    }
+
+    /* Secciones de envíos y pagos: Apilar h2 y reducir tamaño */
+    .info-pagos {
+        flex-direction: column;
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+    .info-pagos h2 {
+        font-size: 150%; /* Reducir la fuente */
+        margin: 5px 0;
+    }
+
+    /* Seccion de políticas: Apilar los enlaces en una sola columna */
+    main section:last-child {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 10px;
+        padding: 10px;
+        margin-top: 20px;
+    }
+    main section:last-child h2 a {
+        font-size: 1rem; /* Reducir la fuente de los enlaces */
+    }
+    
+    /* FOOTER: No necesita cambios significativos, ya es 1fr */
+}
